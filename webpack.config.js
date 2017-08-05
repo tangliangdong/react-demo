@@ -2,7 +2,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('Html-webpack-plugin');
 var webpack = require('webpack');
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/root.jsx',
   output: {
     filename: 'bundle-[chunkhash].js',
     path: path.resolve(__dirname, 'dist')
