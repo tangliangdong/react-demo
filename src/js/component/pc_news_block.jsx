@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card} from 'antd';
-import {BrowserRouter, HashRouter, Route, BrowserHistory, Link} from 'react-router-dom';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import {browserHistory, Router} from 'react-router';
 
 import PCNewsDetail from './pc_news_detail';
@@ -28,7 +28,7 @@ export default class PCNewsBlock extends React.Component {
     const newsList = news.length
       ? news.map((newsItem, index) => (
         <li key={index}>
-          <Link to={`details/${newsItem.uniquekey}`} target="_blank">{newsItem.title}</Link>
+          <Link to={`/details/${newsItem.uniquekey}`} target="_blank">{newsItem.title}</Link>
         </li>
       ))
       : "无新闻";
@@ -38,13 +38,11 @@ export default class PCNewsBlock extends React.Component {
       : "无新闻";
     return (
       <div className="topNewsList">
-        <BrowserRouter>
-          <Card>
-            <ul class="news_ul">
-              {newsList}
-            </ul>
-          </Card>
-        </BrowserRouter>
+        <Card>
+          <ul class="news_ul">
+            {newsList}
+          </ul>
+        </Card>
       </div>
     )
   }

@@ -3,18 +3,15 @@ html{
 }
 $headerColor: #2bb7f5;
 
-.mobile{
-  font-size: 12px;
+.wrap_content{
+  height: auto;
 }
-
 .mobileHeader{
   flex: 1;
   background: #f6f6f6;
-
   header{
     border-bottom: 1px solid $headerColor;
     padding-left: 10px;
-
     img{
       height: 50px;
     }
@@ -26,7 +23,6 @@ $headerColor: #2bb7f5;
     i{
       font-size: .5rem;
       float: right;
-
       margin:{
         right: .3rem;
         top: .3rem;
@@ -34,5 +30,4 @@ $headerColor: #2bb7f5;
       color: #2db7f5;
     }
   }
-
 }

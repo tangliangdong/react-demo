@@ -4,6 +4,7 @@ import MobileHeader from './mobile_header';
 import MobileFooter from './mobile_footer';
 import {Tabs} from 'antd';
 const TabPane = Tabs.TabPane;
+var MobileCss = require('../../sass/mobile.scss');
 
 export default class MobileIndex extends React.Component{
 

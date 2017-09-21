@@ -4,6 +4,7 @@ import {BrowserRouter, HashRouter, Route, BrowserHistory, Link} from 'react-rout
 import {browserHistory, Router} from 'react-router';
 
 import PCNewsDetail from './pc_news_detail';
+var pcCss = require('../../sass/pc.scss');
 
 export default class PCNewsImageBlock extends React.Component {
   constructor(props) {
@@ -38,7 +39,7 @@ export default class PCNewsImageBlock extends React.Component {
     const {news} = this.state;
     const newsList = news.length
       ? news.map((newsItem, index) => (
-        <div key={index} class="image-block">
+        <div key={index} class={pcCss.image_block}>
           <Link to={`details/${newsItem.uniquekey}`} target="_blank">
             <div className="custom-image">
               <img src={newsItem.thumbnail_pic_s} style={styleImage} alt={newsItem.title}/>

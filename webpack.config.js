@@ -4,7 +4,8 @@ var webpack = require('webpack');
 module.exports = {
   entry: './src/js/root.jsx',
   output: {
-    filename: 'bundle-[chunkhash].js',
+    // filename: 'bundle-[chunkhash].js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
@@ -74,13 +75,24 @@ module.exports = {
           loader: "less-loader" // compiles Less to CSS
         }]
       },
+      // {
+      //   test: /\.(png|jpg|gif)$/,
+      //   use: [
+      //     {
+      //       loader: 'url-loader',
+      //       options: {
+      //         limit: 8192
+      //       }
+      //     }
+      //   ]
+      // },
       {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              limit: 8192
+              name: '[path][name].[ext]?[hash]'
             }
           }
         ]
