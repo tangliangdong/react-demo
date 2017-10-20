@@ -1,0 +1,33 @@
+html{
+  font-size: 50px;
+}
+$headerColor: #2bb7f5;
+
+.wrap_content{
+  height: auto;
+}
+.mobileHeader{
+  flex: 1;
+  background: #f6f6f6;
+  header{
+    border-bottom: 1px solid $headerColor;
+    padding-left: 10px;
+    img{
+      height: 50px;
+    }
+    span{
+      font-size: 35px;
+      vertical-align: top;
+      padding-left: 10px;
+    }
+    i{
+      font-size: .5rem;
+      float: right;
+      margin:{
+        right: .3rem;
+        top: .3rem;
+      }
+      color: #2db7f5;
+    }
+  }
+}

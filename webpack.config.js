@@ -2,13 +2,14 @@ var path = require('path');
 var HtmlWebpackPlugin = require('Html-webpack-plugin');
 var webpack = require('webpack');
 module.exports = {
-  entry: './src/root.jsx',
+  entry: './src/js/root.jsx',
   output: {
-    filename: 'bundle-[chunkhash].js',
+    // filename: 'bundle-[chunkhash].js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    extensions: ['.js','.jsx','.scss']
+    extensions: ['.js','.jsx','.scss','css']
   },
   module: {
     rules: [
@@ -19,7 +20,8 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['react','es2015'],
-            plugins: ["transform-react-jsx","react-html-attrs"]
+            plugins: ["transform-react-jsx","react-html-attrs",
+              ['import', { libraryName: 'antd', style: true }],]
           }
         }
       },
@@ -41,7 +43,7 @@ module.exports = {
         }, {
           loader: "css-loader",
           options: {
-            modules: true,
+            modules: false,
             importLoaders: 1,
             localIdentName: '[path][name]__[local]--[hash:base64:5]',
           }
@@ -49,6 +51,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude : /(node_modules)/,
         use: [{
           loader: "style-loader" // creates style nodes from JS strings
         }, {
@@ -61,6 +64,38 @@ module.exports = {
         }, {
           loader: "sass-loader" // compiles Sass to CSS
         }]
+      },
+      {
+        test: /\.less$/,
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "less-loader" // compiles Less to CSS
+        }]
+      },
+      // {
+      //   test: /\.(png|jpg|gif)$/,
+      //   use: [
+      //     {
+      //       loader: 'url-loader',
+      //       options: {
+      //         limit: 8192
+      //       }
+      //     }
+      //   ]
+      // },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]?[hash]'
+            }
+          }
+        ]
       }
     ]
   },
