@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import { Link,Switch,Route } from 'react-router-dom';
+import { Link,Switch,Route,BrowserRouter } from 'react-router-dom';
 import ComponentHeader from './component/header';
 import ComponentFooter from './component/footer';
 import BodyIndex from './component/bodyIndex';
@@ -9,6 +9,21 @@ import List from './component/list';
 import Detail from './component/detail';
 
 export default class Index extends React.Component {
+  // render(){
+  //   return (
+  //     <</BrowserRouter>>
+  //       <div>
+  //         <ul>
+  //           <li><Link to="/list/111">list</Link></li>
+  //           <li><Link to="/detail">detail</Link></li>
+  //         </ul>
+  //         <Route path='/list/:id' component={List}/>
+  //         <Route path='/detail' component={Detail}/>
+  //
+  //       </div>
+  //     </</BrowserRouter>>
+  //   )
+  // }
   render(){
     return (
       <div>
@@ -20,7 +35,6 @@ export default class Index extends React.Component {
           <Route path='/list/:id' component={List}/>
           <Route path='/detail' component={Detail}/>
         </Switch>
-
       </div>
     )
   }

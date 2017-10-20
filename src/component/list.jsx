@@ -10,7 +10,7 @@ export default class List extends React.Component{
   render(){
     return (
       <div>
-        <h3>这是测试列表页面 {this.props.match.params.id}</h3>
+        <h3>这是传递过来的id值 {this.props.match.params.id}</h3>
         <ComponentHeader />
         <BodyIndex t={1} tt={2}/>
         <ComponentFooter/>
